@@ -5,6 +5,7 @@ name = "pypi"
 
 [packages]
 flask = "*"
+environs = "*"
 
 [dev-packages]
 
