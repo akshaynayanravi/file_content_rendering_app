@@ -1,6 +1,6 @@
 from flask import Blueprint, Flask, render_template, request
 
-from file_content_rendering_app.app.settings import (
+from file_content_rendering_app.settings import (
     BASE_DIR,
     FLASK_DEBUG,
     FLASK_HOST,
