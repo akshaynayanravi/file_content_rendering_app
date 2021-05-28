@@ -1,13 +1,8 @@
-from flask import Blueprint, Flask, render_template, request
+from flask import Blueprint, render_template, request
 
-from file_content_rendering_app.settings import (
-    BASE_DIR,
-    FLASK_DEBUG,
-    FLASK_HOST,
-    FLASK_PORT,
-)
+from file_content_rendering_app.settings import BASE_DIR
 
-text_files_dir = f"{BASE_DIR}/file_content_rendering_app/app/text_files"
+text_files_dir = f"{BASE_DIR}/file_content_rendering_app/text_files"
 
 file_content_rendering_app = Blueprint("file_content_renderer", __name__)
 
@@ -47,14 +42,3 @@ def render_file():
         return "Internal Error", 500
 
     return render_template("content.html", text=text)
-
-
-if __name__ == "__main__":
-    app = Flask(__name__)
-    app.register_blueprint(file_content_rendering_app)
-    app.run(host=FLASK_HOST, port=FLASK_PORT, debug=FLASK_DEBUG)
-    logger.info(
-        f"Flask server started: Running on - http://{FLASK_HOST}:{FLASK_PORT}"
-        + f" | Debug - {DEBUG} | CONFIG - {CONFIG}"
-        + f" | app - {app.name}"
-    )
